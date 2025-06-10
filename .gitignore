@@ -1,0 +1,41 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.pyc
+*.pyd
+*.pyo
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+build/
+dist/
+wheels/
+*.egg-info/
+
+# Databases
+*.sqlite3
+*.db
+
+# Environments
+.env
+venv/
+env/
+
+# IDEs and other tools
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# Django specific
+/static/
+/media/
+*.log
+local_settings.py
+
+# OS generated files
+.DS_Store
+.Trashes
+Thumbs.db 
