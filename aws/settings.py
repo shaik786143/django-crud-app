@@ -9,6 +9,7 @@ https://docs.djangoproject.com/en/5.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.1/ref/settings/
 """
+import os
 
 from pathlib import Path
 
@@ -74,14 +75,29 @@ WSGI_APPLICATION = 'aws.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
+if os.environ.get('IS_DOCKERIZED') == 'True':
+    # Dockerized environment settings
+    DATABASE_HOST = 'db'
+    DATABASE_PORT = '3306' # Internal Docker port
+    DATABASE_NAME = os.environ.get('DB_NAME')
+    DATABASE_USER = os.environ.get('DB_USER')
+    DATABASE_PASSWORD = os.environ.get('DB_PASSWORD')
+else:
+    # Local development settings
+    DATABASE_HOST = '127.0.0.1' # Or 'localhost'
+    DATABASE_PORT = '3306' # Default local MySQL port
+    DATABASE_NAME = 'django_crud_db'
+    DATABASE_USER = 'root'
+    DATABASE_PASSWORD = 'subbu@143'
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'django_crud_db',
-        'USER': 'root',
-        'PASSWORD': 'subbu@143',
-        'HOST': 'localhost',
-        'PORT': '3306',
+        'NAME': DATABASE_NAME,
+        'USER': DATABASE_USER,
+        'PASSWORD': DATABASE_PASSWORD,
+        'HOST': DATABASE_HOST,
+        'PORT': DATABASE_PORT,
     }
 }
 
