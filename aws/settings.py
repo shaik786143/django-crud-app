@@ -77,8 +77,8 @@ WSGI_APPLICATION = 'aws.wsgi.application'
 
 if os.environ.get('IS_DOCKERIZED') == 'True':
     # Dockerized environment settings
-    DATABASE_HOST = 'db'
-    DATABASE_PORT = '3306' # Internal Docker port
+    DATABASE_HOST = os.environ.get('DB_HOST') # RDS Endpoint
+    DATABASE_PORT = os.environ.get('DB_PORT', '3306') # Default to 3306 if not provided
     DATABASE_NAME = os.environ.get('DB_NAME')
     DATABASE_USER = os.environ.get('DB_USER')
     DATABASE_PASSWORD = os.environ.get('DB_PASSWORD')

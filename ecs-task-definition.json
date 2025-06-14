@@ -1,0 +1,57 @@
+{
+  "family": "django-app-task-family",
+  "networkMode": "awsvpc",
+  "cpu": "256",
+  "memory": "512",
+  "executionRoleArn": "arn:aws:iam::266869541547:role/ecsTaskExecutionRole",
+  "taskRoleArn": "arn:aws:iam::266869541547:role/ecsTaskRole",
+  "requiresCompatibilities": ["FARGATE"],
+  "containerDefinitions": [
+    {
+      "name": "django-app",
+      "image": "266869541547.dkr.ecr.ap-south-1.amazonaws.com/django-app:latest",
+      "portMappings": [
+        {
+          "containerPort": 8000,
+          "hostPort": 8000,
+          "protocol": "tcp"
+        }
+      ],
+      "environment": [
+        {
+          "name": "IS_DOCKERIZED",
+          "value": "True"
+        },
+        {
+          "name": "DB_HOST",
+          "value": "django-app-db.cryu2g4kmf0b.ap-south-1.rds.amazonaws.com"
+        },
+        {
+          "name": "DB_PORT",
+          "value": "3306"
+        },
+        {
+          "name": "DB_NAME",
+          "value": "django_crud_db"
+        },
+        {
+          "name": "DB_USER",
+          "value": "admin"
+        },
+        {
+          "name": "DB_PASSWORD",
+          "value": "8179508775"
+        }
+      ],
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "options": {
+          "awslogs-group": "/ecs/django-app",
+          "awslogs-region": "ap-south-1",
+          "awslogs-stream-prefix": "ecs"
+        }
+      },
+      "essential": true
+    }
+  ]
+} 
