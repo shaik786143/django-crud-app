@@ -62,7 +62,7 @@ jobs:
         docker push $ECR_REGISTRY/$DOCKER_IMAGE:latest
 
     - name: Upload task definition artifact
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: task-definition
         path: ecs-task-definition.json
