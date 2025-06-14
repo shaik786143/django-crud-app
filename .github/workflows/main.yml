@@ -103,4 +103,4 @@ jobs:
         cluster: my-cluster-django
         wait-for-service-stability: true
 
-# Triggering a new run after IAM PassRole fix. 
+# Triggering a new run after ECS TaskRole Trust Policy fix. 
