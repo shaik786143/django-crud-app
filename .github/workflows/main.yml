@@ -75,4 +75,4 @@ jobs:
     - name: Update ECS service
       run: |
         # TODO: Replace these with your actual ECS cluster and service names
-        aws ecs update-service --cluster <your-cluster-name> --service <your-service-name> --force-new-deployment 
+        aws ecs update-service --cluster my-cluster-django --service django-app-task-service-xqiyh3cc --force-new-deployment 
