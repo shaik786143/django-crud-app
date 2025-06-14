@@ -7,7 +7,7 @@ on:
     branches: [ main ]
 
 env:
-  DOCKER_IMAGE: 266869541547.dkr.ecr.ap-south-1.amazonaws.com/django-app
+  DOCKER_IMAGE: django-app
   AWS_REGION: ap-south-1
 
 jobs:
@@ -48,8 +48,6 @@ jobs:
     - name: Login to Amazon ECR
       id: login-ecr
       uses: aws-actions/amazon-ecr-login@v1
-      with:
-        region: ${{ env.AWS_REGION }}
       
     - name: Build, tag, and push image to Amazon ECR
       env:
