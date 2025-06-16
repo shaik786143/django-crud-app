@@ -38,4 +38,7 @@ local_settings.py
 # OS generated files
 .DS_Store
 .Trashes
-Thumbs.db 
+Thumbs.db
+
+# AWS keys
+aws/keys.txt 
