@@ -132,4 +132,3 @@ jobs:
           
           # Restart Nginx
           sudo systemctl restart nginx
-EOF
