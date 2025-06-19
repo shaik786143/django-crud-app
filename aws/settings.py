@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-4hr&9cf%7!jd$a+u&4-4k41#r-=a_29awf0e=!tkx5rw668hwb
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -75,29 +75,14 @@ WSGI_APPLICATION = 'aws.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
-if os.environ.get('IS_DOCKERIZED') == 'True':
-    # Dockerized environment settings
-    DATABASE_HOST = os.environ.get('DB_HOST') # RDS Endpoint
-    DATABASE_PORT = os.environ.get('DB_PORT', '3306') # Default to 3306 if not provided
-    DATABASE_NAME = os.environ.get('DB_NAME')
-    DATABASE_USER = os.environ.get('DB_USER')
-    DATABASE_PASSWORD = os.environ.get('DB_PASSWORD')
-else:
-    # Local development settings
-    DATABASE_HOST = '127.0.0.1' # Or 'localhost'
-    DATABASE_PORT = '3306' # Default local MySQL port
-    DATABASE_NAME = 'django_crud_db'
-    DATABASE_USER = 'root'
-    DATABASE_PASSWORD = 'subbu@143'
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': DATABASE_NAME,
-        'USER': DATABASE_USER,
-        'PASSWORD': DATABASE_PASSWORD,
-        'HOST': DATABASE_HOST,
-        'PORT': DATABASE_PORT,
+        'NAME': 'django-app-db',
+        'USER': 'admin',
+        'PASSWORD': '8179508775',
+        'HOST': 'django-app-db.cryu2g4kmf0b.ap-south-1.rds.amazonaws.com',
+        'PORT': '3306',
     }
 }
 
