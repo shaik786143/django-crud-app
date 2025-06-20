@@ -78,10 +78,10 @@ WSGI_APPLICATION = 'aws.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'django_app_db',
+        'NAME': 'django',
         'USER': 'admin',
         'PASSWORD': '8179508775',
-        'HOST': 'django-app-db.cryu2g4kmf0b.ap-south-1.rds.amazonaws.com',
+        'HOST': 'django.cryu2g4kmf0b.ap-south-1.rds.amazonaws.com',
         'PORT': '3306',
     }
 }

@@ -58,5 +58,5 @@ jobs:
         ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
         IMAGE_TAG: ${{ github.sha }}
       run: |
-        ssh ubuntu@${{ secrets.EC2_HOST }} "mkdir -p ~/django-app"
-        ssh ubuntu@${{ secrets.EC2_HOST }} "echo 'Deployment successful'"
+        ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa ubuntu@${{ secrets.EC2_HOST }} "mkdir -p ~/django-app"
+        ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa ubuntu@${{ secrets.EC2_HOST }} "echo 'Deployment successful'"
